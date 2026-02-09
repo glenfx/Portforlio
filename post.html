@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Blog Post • Glen Trevor</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+  
+  :root{
+    --bg:#0e0f14; --card:#161822; --text:#e6eef8; --muted:#8b94a6; --accent:#00eaff;
+    --accent-2:#7c5cff; --glass: rgba(255,255,255,0.03);
+  }
+  [data-theme="light"]{
+    --bg:#f6f7fb; --card:#ffffff; --text:#0b1220; --muted:#6b7280; --accent:#0b63ff; --glass: rgba(0,0,0,0.03);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0;font-family:"Inter",system-ui,Segoe UI,Roboto,Helvetica,Arial;
+    background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+  }
+
+  /* progress bar */
+  #progressWrap{position:fixed;top:0;left:0;right:0;height:4px;background:transparent;z-index:9999}
+  #progressBar{height:4px;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width 0.05s linear}
+
+  header{display:flex;justify-content:space-between;align-items:center;padding:14px 5%;background:rgba(0,0,0,0.05);position:sticky;top:4px;z-index:900}
+  .brand{font-weight:800;color:var(--accent)}
+  .controls{display:flex;gap:12px;align-items:center}
+
+  .container{max-width:1100px;margin:28px auto;padding:0 20px;display:grid;grid-template-columns: 1fr 330px;gap:28px}
+  @media(max-width:980px){ .container{grid-template-columns:1fr;padding:0 14px} }
+
+  /* hero */
+  .hero{background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,0.45)}
+  .hero-image{height:320px;background-position:center;background-size:cover}
+  .hero-body{padding:22px}
+  .title{font-size:28px;margin:0 0 8px}
+  .meta{color:var(--muted);font-size:14px;margin-bottom:14px}
+
+  /* author & share / toc column */
+  aside .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid var(--glass);margin-bottom:18px}
+  .author-img{width:72px;height:72px;border-radius:12px;object-fit:cover;margin-right:12px}
+  .author-row{display:flex;align-items:center}
+
+  /* content */
+  .content{background:transparent;padding:6px 0}
+  .content p{margin:0 0 14px}
+  .content h2{margin-top:18px;margin-bottom:10px}
+  .content pre{background:#0b1220;padding:12px;border-radius:8px;overflow:auto;color:#dbeafe}
+
+  /* comments */
+  .comments-list{display:flex;flex-direction:column;gap:12px;margin-top:12px}
+  .comment{background:var(--card);padding:12px;border-radius:10px;border-left:3px solid var(--accent)}
+  .comment small{color:var(--muted);display:block;margin-top:6px}
+
+  /* form */
+  .field{margin-bottom:10px}
+  input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--text)}
+  button{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#00121a;border:none;padding:10px 14px;border-radius:8px;cursor:pointer}
+
+  /* share buttons */
+  .share-row{display:flex;gap:8px;flex-wrap:wrap}
+  .share-btn{padding:8px 10px;border-radius:8px;border:1px solid var(--glass);background:transparent;cursor:pointer;font-weight:600}
+
+  /* toc */
+  .toc{position:sticky;top:90px;max-height:60vh;overflow:auto;padding:8px;border-radius:8px}
+  .toc a{display:block;color:var(--muted);text-decoration:none;padding:6px 0}
+
+  /* related posts */
+  .related{display:grid;gap:12px;margin-top:12px}
+  .related .card{display:flex;gap:12px;align-items:center}
+  .related img{width:80px;height:60px;border-radius:6px;object-fit:cover}
+
+  .muted { color: var(--muted); }
+  /* card hover lift + shadow */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.share-btn {
+  padding: 9px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.08),
+    rgba(255,255,255,0.02)
+  );
+  color: var(--text);
+  font-weight: 600;
+  cursor: pointer;
+  transition: 
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Hover */
+.share-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  background: linear-gradient(
+    135deg,
+    var(--accent),
+    var(--accent-2)
+  );
+  color: #00121a;
+  border-color: transparent;
+  box-shadow: 0 10px 30px rgba(0,234,255,0.35);
+}
+
+
+.hero {
+  overflow: hidden;
+}
+
+.hero-image {
+  transition: transform 0.8s ease;
+}
+
+.hero:hover .hero-image {
+  transform: scale(1.05);
+}
+
+
+
+</style>
+</head>
+<body data-theme="dark">
+
+<!-- progress bar -->
+<div id="progressWrap"><div id="progressBar"></div></div>
+
+<header>
+  <div class="brand">GT Blog</div>
+  <div class="controls">
+    <button id="themeToggle" title="Toggle light/dark">Toggle Theme</button>
+    <a href="blog.html" style="color:var(--muted);text-decoration:none">← Back to blog</a>
+  </div>
+</header>
+
+<main class="container">
+  <section>
+    <div class="hero" id="post-hero">
+      <div id="heroImage" class="hero-image" style="background:#0b1220"></div>
+      <div class="hero-body">
+        <h1 class="title" id="postTitle">Loading…</h1>
+        <div class="meta" id="postMeta"></div>
+      </div>
+    </div>
+
+    <article class="content fade-up" id="postContent">
+      <!-- full post content injected here -->
+    </article>
+
+    <!-- author block -->
+    <div class="card" style="display:flex;gap:12px;align-items:flex-start;margin-top:18px">
+      <img class="author-img" src="img3.jpg" alt="Glen Trevor">
+      <div>
+        <div style="font-weight:700">Glen Trevor</div>
+        <div style="color:var(--muted);font-size:13px;margin-top:6px">
+          Cybersecurity & Network Engineer. I write about threat research, cloud security and red team techniques.
+        </div>
+      </div>
+    </div>
+
+    <!-- comments -->
+    <div class="card" id="commentsCard">
+  <h3>Comments</h3>
+  <p class="muted" style="margin-bottom:10px">
+    Comments are powered by GitHub Discussions. You need a GitHub account to comment.
+  </p>
+
+  <script src="https://giscus.app/client.js"
+    data-repo="glenfx/blog-comments"
+    data-repo-id="R_kgDORJxSzQ"
+    data-category="General"
+    data-category-id="DIC_kwDORJxSzc4C18pn"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="en"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+
+
+  </section>
+
+  <aside>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <div style="font-weight:700">Share</div>
+        <div style="color:var(--muted);font-size:13px">Spread the word</div>
+      </div>
+
+      <div class="share-row" id="shareRow">
+        <button class="share-btn" id="shareTwitter">Twitter</button>
+        <button class="share-btn" id="shareWhatsApp">WhatsApp</button>
+        <button class="share-btn" id="shareLinkedIn">LinkedIn</button>
+        <button class="share-btn" id="copyLink">Copy link</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="font-weight:700;margin-bottom:8px">Table of contents</div>
+      <div class="toc" id="tocArea">
+        <!-- injected from headings -->
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="font-weight:700;margin-bottom:12px">Related posts</div>
+      <div id="related" class="related"></div>
+    </div>
+  </aside>
+</main>
+
+<script>
+/* CONFIG */
+const POSTS_ENDPOINT = "/Posts.json";
+/* COMMENTS_ENDPOINT no longer used (Firestore used instead) */
+
+/* UTIL */
+const qs = s => document.querySelector(s);
+const qsa = s => document.querySelectorAll(s);
+
+/* Read post id from URL */
+const params = new URLSearchParams(window.location.search);
+const POST_ID = params.get("id");
+
+/* Elements */
+const heroImage = qs("#heroImage");
+const postTitle = qs("#postTitle");
+const postMeta = qs("#postMeta");
+const postContent = qs("#postContent");
+const relatedContainer = qs("#related");
+const tocArea = qs("#tocArea");
+const progressBar = qs("#progressBar");
+const themeToggle = qs("#themeToggle");
+const copyLinkBtn = qs("#copyLink");
+
+/* THEME - persist */
+const savedTheme = localStorage.getItem("gt-theme") || "dark";
+document.documentElement.setAttribute("data-theme", savedTheme);
+
+themeToggle.addEventListener("click", () => {
+  const cur = document.documentElement.getAttribute("data-theme") || "dark";
+  const next = cur === "dark" ? "light" : "dark";
+  document.documentElement.setAttribute("data-theme", next);
+  localStorage.setItem("gt-theme", next);
+});
+
+/* Reading progress */
+function updateProgress(){
+  const scrollTop = window.scrollY || document.documentElement.scrollTop;
+  const docH = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docH > 0 ? (scrollTop / docH) * 100 : 0;
+  progressBar.style.width = pct + "%";
+}
+window.addEventListener("scroll", updateProgress);
+updateProgress();
+
+/* Load post and comments (posts from local JSON server, comments from Firestore) */
+async function load() {
+  try {
+    const res = await fetch(POSTS_ENDPOINT);
+    const data = await res.json();
+    const posts = data.posts;
+
+    if (!Array.isArray(posts)) {
+      throw new Error("Posts array not found in Posts.json");
+    }
+
+    const post =
+      posts.find(p => String(p.id) === String(POST_ID)) || posts[0];
+
+    if (!post) {
+      postTitle.innerText = "Post not found";
+      return;
+    }
+
+    if (post.image) {
+      heroImage.style.backgroundImage = `url('${post.image}')`;
+    }
+
+    postTitle.innerText = post.title;
+    postMeta.innerText = `${post.date} • ${post.category}`;
+    postContent.innerHTML = post.full || `<p>${post.description}</p>`;
+
+    buildTOC();
+    renderRelated(posts, post);
+
+  } catch (err) {
+    console.error(err);
+    postTitle.innerText = "Failed to load post";
+  }
+}
+
+/* Related posts renderer */
+function renderRelated(allPosts, current) {
+  const related = allPosts.filter(p => p.category === current.category && p.id !== current.id).slice(0,4);
+  if (!related.length) {
+    relatedContainer.innerHTML = '<div class="muted">No related posts.</div>';
+    return;
+  }
+  relatedContainer.innerHTML = related.map(r => `
+    <div class="card" onclick="location.href='post.html?id=${r.id}'" style="display:flex;gap:12px;align-items:center;cursor:pointer">
+      <img src="${r.image}" alt="${r.title}" style="width:88px;height:64px;border-radius:6px;object-fit:cover">
+      <div style="font-weight:700">${r.title}</div>
+    </div>
+  `).join("");
+}
+
+/* TOC builder: find h2/h3 in content */
+function buildTOC(){
+  tocArea.innerHTML = "";
+  const headings = postContent.querySelectorAll("h2, h3");
+  if(!headings.length){ tocArea.innerHTML = '<div class="muted">No headings in this article</div>'; return; }
+  headings.forEach((h, i) => {
+    const id = h.id || `heading-${i}`;
+    h.id = id;
+    const a = document.createElement("a");
+    a.href = `#${id}`;
+    a.innerText = h.innerText;
+    a.addEventListener("click", (ev)=>{ ev.preventDefault(); document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'}); });
+    tocArea.appendChild(a);
+  });
+}
+
+/* sharing */
+function shareToTwitter(text, url){
+  const share = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
+  window.open(share,'_blank','noopener');
+}
+function shareToWhatsApp(text, url){
+  const share = `https://wa.me/?text=${encodeURIComponent(text + " " + url)}`;
+  window.open(share,'_blank','noopener');
+}
+function shareToLinkedIn(url, title){
+  const share = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+  window.open(share,'_blank','noopener');
+}
+
+qs("#shareTwitter").addEventListener("click", ()=>{
+  shareToTwitter(postTitle.innerText, location.href);
+});
+qs("#shareWhatsApp").addEventListener("click", ()=>{
+  shareToWhatsApp(postTitle.innerText, location.href);
+});
+qs("#shareLinkedIn").addEventListener("click", ()=>{
+  shareToLinkedIn(location.href, postTitle.innerText);
+});
+copyLinkBtn.addEventListener("click", async ()=>{
+  try{ await navigator.clipboard.writeText(location.href); copyLinkBtn.innerText = "Copied!"; setTimeout(()=>copyLinkBtn.innerText="Copy link",1200);}catch(e){alert("Copy failed")}
+});
+
+/* escape helper to avoid naive injection when showing comments */
+function escapeHtml(str = "") {
+  return String(str)
+    .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;").replaceAll("'", "&#39;");
+}
+
+/* initialize */
+load();
+
+</script>
+</body>
+</html>

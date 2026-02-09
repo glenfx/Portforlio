@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Glen Trevor Blog — Cybersecurity, networking, cloud security, and red teaming articles.">
+
+<title>Blog • Glen Trevor</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style3.css">
+<style>
+  :root {
+    --bg: #0e0f14;
+    --card: #161822;
+    --text: #e5e7eb;
+    --muted: #6b7280;
+    --accent: #00eaff;
+  }
+  body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: #0a0b0f;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+  nav a {
+    margin-left: 20px;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+  }
+  .search-bar input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    background: #1f212e;
+    border: 1px solid #333;
+    color: var(--text);
+    font-size: 15px;
+  }
+  .categories {
+    display: flex;
+    gap: 10px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+  }
+  .cat {
+    padding: 8px 16px;
+    border-radius: 25px;
+    background: #1f212e;
+    color: var(--text);
+    cursor: pointer;
+    border: 1px solid #333;
+    transition: 0.2s;
+  }
+  .cat:hover, .cat.active {
+    background: var(--accent);
+    color: black;
+    font-weight: 600;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+  }
+  .post {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 3px solid var(--accent);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+  .post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  }
+  .post img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  .post h3 { margin: 0 0 10px; }
+  .post p { color: var(--muted); }
+  .fade-up { opacity: 0; transform: translateY(15px); animation: fadeUp 0.7s forwards; }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+    gap: 10px;
+  }
+  .pagination button {
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background: #1f212e;
+    color: var(--text);
+    cursor: pointer;
+  }
+  .pagination button.active {
+    background: var(--accent);
+    color: black;
+    font-weight: 600;
+  }
+  @media(max-width:600px){
+    header { flex-direction: column; gap: 10px; }
+    nav { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div style="font-weight:800;font-size:20px;color:var(--accent)">GT Blog</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html">About</a>
+    <a href="index.html">Projects</a>
+    <a href="Blog.html">Blog</a>
+    <a href="Contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="container fade-up">
+  <h1>Explore Articles</h1>
+  <p style="color:var(--muted)">Latest updates on cybersecurity, networking, cloud, red teaming & more.</p>
+
+  <div class="search-bar">
+    <input type="text" id="search" placeholder="Search blog posts..." />
+  </div>
+
+  <div class="categories">
+    <div class="cat active" data-cat="all">All</div>
+    <div class="cat" data-cat="Web Security">Web Security</div>
+    <div class="cat" data-cat="Cloud Security">Cloud Security</div>
+    <div class="cat" data-cat="Red Team">Red Team</div>
+    <div class="cat" data-cat="Blue Team">Blue Team</div>
+    <div class="cat" data-cat="Networking">Networking</div>
+  </div>
+
+  <div class="grid" id="posts"></div>
+  <div class="pagination" id="pagination"></div>
+</div>
+
+<script>
+const postsContainer = document.getElementById("posts");
+const paginationContainer = document.getElementById("pagination");
+let postsData = [];
+let filteredData = [];
+let currentCategory = "all";
+let currentPage = 1;
+const postsPerPage = 4;
+
+// Function to truncate text
+function truncateText(text, maxLength = 120) {
+  return text.length > maxLength ? text.substring(0, maxLength) + "…" : text;
+}
+
+// Fetch posts
+fetch("/Posts.json")
+  .then(res => res.json())
+  .then(data => {
+    postsData = data.posts;    // ✅ CORRECT
+    filteredData = postsData;
+    renderPosts();
+    renderPagination();
+  });
+
+
+// Render posts
+function renderPosts() {
+  postsContainer.innerHTML = "";
+
+  const start = (currentPage - 1) * postsPerPage;
+  const end = start + postsPerPage;
+
+  filteredData.slice(start, end).forEach(post => {
+    const div = document.createElement("div");
+    div.className = "post fade-up";
+    div.dataset.cat = post.category;
+    div.innerHTML = `
+      <img src="${post.image}" alt="${post.title}">
+      <h3>${post.featured ? "Featured: " : ""}${post.title}</h3>
+      <p>${truncateText(post.description, 120)}</p>
+      <small style="color:var(--muted)">${post.date} • ${post.category}</small>
+    `;
+    div.addEventListener("click", () => {
+      window.location.href = `post.html?id=${post.id}`;
+    });
+    postsContainer.appendChild(div);
+  });
+}
+
+// Category filtering
+document.querySelectorAll(".cat").forEach(cat => {
+  cat.addEventListener("click", () => {
+    document.querySelectorAll(".cat").forEach(c => c.classList.remove("active"));
+    cat.classList.add("active");
+    currentCategory = cat.dataset.cat;
+    applyFilters();
+  });
+});
+
+// Search
+document.getElementById("search").addEventListener("keyup", () => applyFilters());
+
+function applyFilters() {
+  const searchText = document.getElementById("search").value.toLowerCase();
+  filteredData = postsData.filter(p => {
+    const matchesCategory = currentCategory === "all" || p.category === currentCategory;
+    const matchesSearch = p.title.toLowerCase().includes(searchText) || p.description.toLowerCase().includes(searchText);
+    return matchesCategory && matchesSearch;
+  });
+  currentPage = 1;
+  renderPosts();
+  renderPagination();
+}
+
+// Pagination
+function renderPagination() {
+  paginationContainer.innerHTML = "";
+  const pageCount = Math.ceil(filteredData.length / postsPerPage);
+  for(let i=1; i<=pageCount; i++){
+    const btn = document.createElement("button");
+    btn.textContent = i;
+    if(i === currentPage) btn.classList.add("active");
+    btn.addEventListener("click", () => {
+      currentPage = i;
+      renderPosts();
+      renderPagination();
+    });
+    paginationContainer.appendChild(btn);
+  }
+}
+</script>
+
+</body>
+</html>

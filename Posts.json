@@ -1,0 +1,104 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "React2Shell CVE-2025-55182",
+      "category": "Web Security",
+      "image": "react2shell.webp",
+      "description": "Explained: <h2>Critical RCE Vulnerability in React & Next.js.</h2> Modern web development just faced its Log4Shell moment. On December 3, 2025, a critical security vulnerability in React Server Components (RSC) was publicly disclosed: 👉 CVE-2025–55182, nicknamed React2Shell, enables unauthenticated remote code execution (RCE) against servers running vulnerable React and Next.js applications — with a CVSS score of 10.0, the highest possible severity. This bug allows attackers to execute arbitrary commands on servers with nothing more than a single crafted HTTP request — no credentials, no special configuration, and no indicators by default.<br><br> <b>Why This Is So Dangerous </b> <br>React Server Components (introduced in React 19) allow rendering parts of a React application on the server for better performance and smaller client bundles. <br><br> However, the architecture depends on streaming serialized payloads over the <b>“React Flight” protocol </b>— and that’s exactly where things went wrong. <br><br> A flaw in deserialization logic allows malicious payloads to: <br><br> <ul><li>Manipulate JavaScript prototypes,</li><br><li>Resolve dangerous Node.js modules such as child_process,</li><br> <li>Trigger functions capable of executing system commands.</li></ul><br> The vulnerable path centers around a function called:  <b>requireModule()</b><br> <br><b> The Reality: Exploitation Within Hours</b> <br>This vulnerability didn’t sit unnoticed. Within hours of public disclosure, threat intelligence teams observed: <b>Active exploitation</b> China-aligned groups including: <b>Earth Lamia AND Jackpot Panda</b> began scanning and exploiting exposed RSC endpoints globally.<br><br><b>Captured attacks included:</b> <ul><li>Credential harvesting via dumping .env files.</li> <li>Host reconnaissance using whoami, uname, id.</li><li>Persistence attempts by writing files under /tmp/.</li></ul> <br> Public proof-of-concept exploits were released on GitHub on December 4–5,achieving 100% success against clean default installs of create-next-app.",
+      "summary": "Critical RCE vulnerability in React & Next.js, nicknamed React2Shell, CVE-2025-55182.",
+      "date": "2025-01-05",
+      "featured": true
+      
+    },
+     {
+      "id": 2,
+      "title": "⚠️ Hackers are exploiting a bug in the Sneeit Framework plugin ",
+      "category": "Web Security",
+      "image": "blog1.jpg",
+      "description": "A look at the biggest cybersecurity breaches affecting companies in 2025...",
+      "date": "2025-01-05",
+      "featured": true
+      
+    },
+     {
+      "id": 3,
+      "title": "⚡️ Another week, another wave of exploits, leaks, and surprise",
+      "category": "Web Security",
+      "image": "blog3.jpg",
+      "description": "A look at the biggest cybersecurity breaches affecting companies in 2025...",
+      "date": "2025-01-05",
+      "featured": true
+      
+    },
+     {
+      "id": 4,
+      "title": "📱 India now requires messaging apps like WhatsApp, Telegram",
+      "category": "Web Security",
+      "image": "blog2.jpg",
+      "description": "A look at the biggest cybersecurity breaches affecting companies in 2025...",
+      "date": "2025-01-05",
+      "featured": true
+      
+    },
+     {
+      "id": 5,
+      "title": "Top Web Security Breaches in 2025",
+      "category": "Web Security",
+      "image": "assets/security1.jpg",
+      "description": "A look at the biggest cybersecurity breaches affecting companies in 2025...",
+      "date": "2025-01-05",
+      "featured": true
+      
+    },
+     {
+      "id": 6,
+      "title": "Top Web Security Breaches in 2025",
+      "category": "Web Security",
+      "image": "assets/security1.jpg",
+      "description": "A look at the biggest cybersecurity breaches affecting companies in 2025...",
+      "date": "2025-01-05",
+      "featured": true
+      
+    },
+     {
+      "id": 7,
+      "title": "Top Web Security Breaches in 2025",
+      "category": "Web Security",
+      "image": "assets/security1.jpg",
+      "description": "A look at the biggest cybersecurity breaches affecting companies in 2025...",
+      "date": "2025-01-05",
+      "featured": true
+      
+    },
+     {
+      "id": 8,
+      "title": "Top Web Security Breaches in 2025",
+      "category": "Web Security",
+      "image": "assets/security1.jpg",
+      "description": "A look at the biggest cybersecurity breaches affecting companies in 2025...",
+      "date": "2025-01-05",
+      "featured": true
+      
+    },
+
+    {
+      "id": 9,
+      "title": "Cloud Security Trends You Should Know",
+      "category": "Cloud Security",
+      "image": "assets/cloud1.jpg",
+      "description": "The future of cloud protection and best practices...",
+      "date": "2025-01-03",
+      "featured": false
+    },
+    {
+      "id": 10,
+      "title": "Red Team Operations: What’s New in 2025",
+      "category": "Red Team",
+      "image": "assets/redteam.jpg",
+      "description": "Modern attack simulations and tools used by red teams...",
+      "date": "2025-01-02",
+      "featured": false
+    }
+  ]
+}
