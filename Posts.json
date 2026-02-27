@@ -11,42 +11,8 @@
       "summary": "Critical RCE vulnerability in React & Next.js, nicknamed React2Shell, CVE-2025-55182.",
       "tags": ["RCE", "Next.js", "React", "CVE", "Web Security"],
       "date": "2025-01-05",
-      "featured": true,
-      "content": "<h1>React2Shell CVE-2025-55182</h1>
-<p><strong>Explained:</strong> Critical RCE Vulnerability in React & Next.js.</p>
-
-<h2>Introduction</h2>
-<p>Modern web development just faced its Log4Shell moment. On December 3, 2025, a critical vulnerability in React Server Components (RSC) was publicly disclosed: CVE-2025-55182, nicknamed React2Shell. The flaw enables unauthenticated remote code execution (RCE) against servers running vulnerable React and Next.js applications, earning a CVSS score of 10.0 — the highest possible severity.</p>
-
-<p>This vulnerability allows attackers to execute arbitrary system commands using a single crafted HTTP request — no authentication required.</p>
-
-<h2>Why This Is So Dangerous</h2>
-<p>React Server Components, introduced in React 19, allow portions of applications to render server-side for performance optimization. However, this architecture relies on streaming serialized payloads via the <strong>React Flight protocol</strong>.</p>
-
-<p>The vulnerability stems from flawed deserialization logic, allowing malicious payloads to:</p>
-
-<ul>
-<li>Manipulate JavaScript prototypes</li>
-<li>Resolve dangerous Node.js modules such as <code>child_process</code></li>
-<li>Execute system-level commands on the host server</li>
-</ul>
-
-<p>The vulnerable execution path centers around a function named <code>requireModule()</code>.</p>
-
-<h2>Exploitation in the Wild</h2>
-<p>This vulnerability was exploited within hours of disclosure. Threat intelligence reports confirmed active exploitation by China-aligned groups including <strong>Earth Lamia</strong> and <strong>Jackpot Panda</strong>.</p>
-
-<h3>Observed Attack Activity</h3>
-<ul>
-<li>Credential harvesting by dumping <code>.env</code> files</li>
-<li>Host reconnaissance using <code>whoami</code>, <code>uname</code>, and <code>id</code></li>
-<li>Persistence attempts via file writes to <code>/tmp/</code></li>
-</ul>
-
-<p>Public proof-of-concept exploits were released on GitHub within 24 hours, achieving near 100% success against default <code>create-next-app</code> installations.</p>
-
-<h2>Conclusion</h2>
-<p>CVE-2025-55182 represents a critical security failure in modern server-rendered React architectures. Immediate patching and endpoint hardening are essential to prevent full server compromise.</p>"
+      "featured": true,      
+      "content": "Explained: <h2>Critical RCE Vulnerability in React & Next.js.</h2> Modern web development just faced its Log4Shell moment. On December 3, 2025, a critical security vulnerability in React Server Components (RSC) was publicly disclosed: CVE-2025-55182, nicknamed React2Shell, enables unauthenticated remote code execution (RCE) against servers running vulnerable React and Next.js applications — with a CVSS score of 10.0, the highest possible severity. This bug allows attackers to execute arbitrary commands on servers with nothing more than a single crafted HTTP request — no credentials, no special configuration, and no indicators by default. <strong>Why This Is So Dangerous</strong> React Server Components (introduced in React 19) allow rendering parts of a React application on the server for better performance and smaller client bundles. However, the architecture depends on streaming serialized payloads over the <strong>React Flight protocol</strong>. A flaw in deserialization logic allows malicious payloads to: <ul><li>Manipulate JavaScript prototypes,</li><li>Resolve dangerous Node.js modules such as child_process,</li><li>Trigger functions capable of executing system commands.</li></ul> The vulnerable path centers around a function called: <strong>requireModule()</strong>. <strong>The Reality: Exploitation Within Hours</strong> Within hours of public disclosure, threat intelligence teams observed active exploitation by China-aligned groups including Earth Lamia and Jackpot Panda. Captured attacks included: <ul><li>Credential harvesting via dumping .env files.</li><li>Host reconnaissance using whoami, uname, id.</li><li>Persistence attempts by writing files under /tmp/.</li></ul> Public proof-of-concept exploits were released on GitHub on December 4–5, achieving 100% success against clean default installs of create-next-app."
       
     },
      {
