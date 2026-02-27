@@ -2,60 +2,126 @@
   "posts": [
     {
       "id": 1,
+      "slug": "react2shell-cve-2025-55182",
       "title": "React2Shell CVE-2025-55182",
       "category": "Web Security",
       "image": "react2shell.webp",
-      "description": "Explained: <h2>Critical RCE Vulnerability in React & Next.js.</h2> Modern web development just faced its Log4Shell moment. On December 3, 2025, a critical security vulnerability in React Server Components (RSC) was publicly disclosed: 👉 CVE-2025–55182, nicknamed React2Shell, enables unauthenticated remote code execution (RCE) against servers running vulnerable React and Next.js applications — with a CVSS score of 10.0, the highest possible severity. This bug allows attackers to execute arbitrary commands on servers with nothing more than a single crafted HTTP request — no credentials, no special configuration, and no indicators by default.<br><br> <b>Why This Is So Dangerous </b> <br>React Server Components (introduced in React 19) allow rendering parts of a React application on the server for better performance and smaller client bundles. <br><br> However, the architecture depends on streaming serialized payloads over the <b>“React Flight” protocol </b>— and that’s exactly where things went wrong. <br><br> A flaw in deserialization logic allows malicious payloads to: <br><br> <ul><li>Manipulate JavaScript prototypes,</li><br><li>Resolve dangerous Node.js modules such as child_process,</li><br> <li>Trigger functions capable of executing system commands.</li></ul><br> The vulnerable path centers around a function called:  <b>requireModule()</b><br> <br><b> The Reality: Exploitation Within Hours</b> <br>This vulnerability didn’t sit unnoticed. Within hours of public disclosure, threat intelligence teams observed: <b>Active exploitation</b> China-aligned groups including: <b>Earth Lamia AND Jackpot Panda</b> began scanning and exploiting exposed RSC endpoints globally.<br><br><b>Captured attacks included:</b> <ul><li>Credential harvesting via dumping .env files.</li> <li>Host reconnaissance using whoami, uname, id.</li><li>Persistence attempts by writing files under /tmp/.</li></ul> <br> Public proof-of-concept exploits were released on GitHub on December 4–5,achieving 100% success against clean default installs of create-next-app.",
-      "summary": "Critical RCE vulnerability in React & Next.js, nicknamed React2Shell, CVE-2025-55182.",
+      "summary": "Critical RCE vulnerability in React & Next.js, CVSS 10.0, enabling unauthenticated remote code execution.",
+      "description": "Technical breakdown of CVE-2025-55182 (React2Shell), a critical remote code execution vulnerability affecting React Server Components and Next.js applications.",
       "date": "2025-01-05",
-      "featured": true
-      
+      "featured": true,
+      "content": "<h1>React2Shell CVE-2025-55182</h1><h2>Introduction</h2><p>Modern web development just faced its Log4Shell moment. On December 3, 2025, a critical security vulnerability in React Server Components (RSC) was publicly disclosed: CVE-2025-55182, nicknamed React2Shell. The vulnerability enables unauthenticated remote code execution (RCE) against servers running vulnerable React and Next.js applications with a CVSS score of 10.0.</p><p>This bug allows attackers to execute arbitrary commands on servers using a single crafted HTTP request — no credentials, no special configuration, and no default logging indicators.</p><h2>Why This Is So Dangerous</h2><p>React Server Components (introduced in React 19) allow parts of applications to render on the server for improved performance and smaller client bundles. However, the architecture relies on streaming serialized payloads over the React Flight protocol.</p><p>A flaw in the deserialization logic allows malicious payloads to:</p><ul><li>Manipulate JavaScript prototypes</li><li>Resolve dangerous Node.js modules such as child_process</li><li>Trigger functions capable of executing system commands</li></ul><p>The vulnerable execution path centers around a function named <strong>requireModule()</strong>.</p><h2>Exploitation in the Wild</h2><p>This vulnerability was exploited within hours of disclosure. Threat intelligence teams observed active exploitation from China-aligned groups including Earth Lamia and Jackpot Panda.</p><p>Captured attacks included:</p><ul><li>Credential harvesting through dumping .env files</li><li>Host reconnaissance using whoami, uname, and id</li><li>Persistence attempts by writing malicious files under /tmp/</li></ul><p>Public proof-of-concept exploits were released on GitHub on December 4–5, achieving full success against default create-next-app installations.</p><h2>Mitigation</h2><ul><li>Immediately upgrade to patched React and Next.js versions</li><li>Disable exposed React Server Component endpoints if not required</li><li>Restrict server execution permissions</li><li>Implement runtime monitoring for abnormal module loading</li></ul><h2>Conclusion</h2><p>React2Shell demonstrates how serialization and deserialization flaws can introduce catastrophic server-side vulnerabilities. Organizations must treat server component architectures as part of their critical attack surface and apply strict input validation and dependency management practices.</p>"
     },
-     {
+    {
       "id": 2,
-      "title": "⚠️ Hackers are exploiting a bug in the Sneeit Framework plugin ",
+      "slug": "sneeit-framework-plugin-vulnerability",
+      "title": "Hackers Exploiting Sneeit Framework Plugin Vulnerability",
       "category": "Web Security",
       "image": "blog1.jpg",
-      "description": "A look at the biggest cybersecurity breaches affecting companies in 2025...",
+      "summary": "Active exploitation targeting a vulnerability in the Sneeit Framework plugin.",
+      "description": "Security analysis of an actively exploited vulnerability affecting the Sneeit Framework WordPress plugin.",
       "date": "2025-01-05",
-      "featured": true
-      
+      "featured": true,
+      "content": "<h1>Sneeit Framework Plugin Vulnerability</h1><h2>Overview</h2><p>Hackers are actively exploiting a vulnerability in the Sneeit Framework plugin affecting WordPress-based websites.</p><h2>Impact</h2><p>Successful exploitation may allow attackers to manipulate website content or gain unauthorized access.</p><h2>Mitigation</h2><ul><li>Update the plugin immediately</li><li>Audit administrator accounts</li><li>Monitor for unusual file changes</li></ul><h2>Conclusion</h2><p>Website administrators should treat plugin vulnerabilities as critical and apply patches promptly.</p>"
     },
-     {
+    {
       "id": 3,
-      "title": "⚡️ Another week, another wave of exploits, leaks, and surprise",
+      "slug": "weekly-exploits-and-leaks-roundup",
+      "title": "Weekly Exploits, Leaks, and Security Incidents",
       "category": "Web Security",
       "image": "blog3.jpg",
-      "description": "A look at the biggest cybersecurity breaches affecting companies in 2025...",
+      "summary": "A roundup of recent exploits, breaches, and security surprises.",
+      "description": "Weekly cybersecurity roundup covering newly disclosed exploits and data leaks.",
       "date": "2025-01-05",
-      "featured": true
-      
+      "featured": true,
+      "content": "<h1>Weekly Security Roundup</h1><h2>Highlights</h2><p>This week saw multiple exploit disclosures and data leak reports affecting various industries.</p><h2>Key Takeaways</h2><ul><li>Patch management remains critical</li><li>Zero-day exploitation continues to rise</li></ul><h2>Conclusion</h2><p>Organizations must maintain continuous monitoring and proactive defense strategies.</p>"
     },
-     {
+    {
       "id": 4,
-      "title": "📱 India now requires messaging apps like WhatsApp, Telegram",
+      "slug": "india-messaging-app-regulations-2025",
+      "title": "India Messaging App Regulations 2025",
       "category": "Web Security",
       "image": "blog2.jpg",
-      "description": "A look at the biggest cybersecurity breaches affecting companies in 2025...",
+      "summary": "New regulatory requirements impacting messaging platforms operating in India.",
+      "description": "Analysis of India's updated regulations affecting messaging applications like WhatsApp and Telegram.",
       "date": "2025-01-05",
-      "featured": true
-      
+      "featured": true,
+      "content": "<h1>India Messaging App Regulations</h1><h2>Overview</h2><p>India has introduced new compliance requirements for messaging applications operating within its jurisdiction.</p><h2>Impact</h2><p>These regulations may affect encryption policies, data storage practices, and operational transparency.</p><h2>Conclusion</h2><p>Companies must align with regulatory changes to maintain market access.</p>"
     },
-     {
+    {
       "id": 5,
+      "slug": "top-web-security-breaches-2025",
       "title": "Top Web Security Breaches in 2025",
       "category": "Web Security",
       "image": "assets/security1.jpg",
-      "description": "A look at the biggest cybersecurity breaches affecting companies in 2025...",
+      "summary": "Major web security breaches that defined 2025.",
+      "description": "An overview of significant web security breaches and their impact in 2025.",
       "date": "2025-01-05",
-      "featured": true
-      
+      "featured": true,
+      "content": "<h1>Top Web Security Breaches in 2025</h1><h2>Overview</h2><p>A review of the most impactful web security incidents of the year.</p><h2>Lessons Learned</h2><ul><li>Importance of secure coding</li><li>Zero trust implementation</li></ul><h2>Conclusion</h2><p>Security posture maturity determines breach impact.</p>"
     },
-     {
+    {
       "id": 6,
-      "title": "Top Web Security Breaches in 2025",
+      "slug": "idor-vulnerabilities-explained",
+      "title": "IDOR Vulnerabilities Explained",
       "category": "Web Security",
       "image": "assets/security1.jpg",
+      "summary": "Understanding Insecure Direct Object Reference vulnerabilities.",
+      "description": "Technical explanation of IDOR vulnerabilities and mitigation strategies.",
+      "date": "2025-01-05",
+      "featured": true,
+      "content": "<h1>IDOR Vulnerabilities</h1><h2>Overview</h2><p>IDOR vulnerabilities occur when applications expose internal object references without proper authorization checks.</p><h2>Prevention</h2><ul><li>Implement proper access control</li><li>Validate user permissions server-side</li></ul><h2>Conclusion</h2><p>Access control failures remain a top OWASP risk.</p>"
+    },
+    {
+      "id": 7,
+      "slug": "broken-access-control-2025",
+      "title": "Broken Access Control in 2025",
+      "category": "Web Security",
+      "image": "assets/security1.jpg",
+      "summary": "How broken access control continues to dominate vulnerability rankings.",
+      "description": "Analysis of broken access control vulnerabilities and real-world impact.",
+      "date": "2025-01-05",
+      "featured": true,
+      "content": "<h1>Broken Access Control</h1><h2>Overview</h2><p>Broken access control remains one of the most exploited vulnerability classes.</p><h2>Mitigation</h2><ul><li>Enforce server-side authorization checks</li><li>Adopt least privilege principles</li></ul><h2>Conclusion</h2><p>Access control must be validated at every layer.</p>"
+    },
+    {
+      "id": 8,
+      "slug": "server-side-template-injection-explained",
+      "title": "Server-Side Template Injection Explained",
+      "category": "Web Security",
+      "image": "assets/security1.jpg",
+      "summary": "Understanding SSTI vulnerabilities and exploitation paths.",
+      "description": "Deep dive into server-side template injection vulnerabilities and mitigation techniques.",
+      "date": "2025-01-05",
+      "featured": true,
+      "content": "<h1>Server-Side Template Injection</h1><h2>Overview</h2><p>SSTI occurs when untrusted user input is embedded into server-side templates without proper sanitization.</p><h2>Impact</h2><p>Exploitation may lead to remote code execution.</p><h2>Conclusion</h2><p>Template engines must never evaluate untrusted input.</p>"
+    },
+    {
+      "id": 9,
+      "slug": "cloud-security-trends-2025",
+      "title": "Cloud Security Trends You Should Know",
+      "category": "Cloud Security",
+      "image": "assets/cloud1.jpg",
+      "summary": "Emerging cloud security patterns and defensive strategies.",
+      "description": "Analysis of major cloud security trends shaping 2025.",
+      "date": "2025-01-03",
+      "featured": false,
+      "content": "<h1>Cloud Security Trends 2025</h1><h2>Overview</h2><p>Cloud adoption continues to grow, bringing new security challenges.</p><h2>Trends</h2><ul><li>Zero trust cloud architecture</li><li>Cloud workload protection</li></ul><h2>Conclusion</h2><p>Cloud-native security requires continuous adaptation.</p>"
+    },
+    {
+      "id": 10,
+      "slug": "red-team-operations-2025",
+      "title": "Red Team Operations: What’s New in 2025",
+      "category": "Red Team",
+      "image": "assets/redteam.jpg",
+      "summary": "Modern offensive security tactics and tooling updates.",
+      "description": "Overview of evolving red team methodologies and tooling in 2025.",
+      "date": "2025-01-02",
+      "featured": false,
+      "content": "<h1>Red Team Operations 2025</h1><h2>Overview</h2><p>Red team engagements are evolving with automation and AI-driven reconnaissance.</p><h2>Modern Tooling</h2><ul><li>Advanced C2 frameworks</li><li>Cloud attack simulation</li></ul><h2>Conclusion</h2><p>Organizations must test defenses continuously.</p>"
+    }
+  ]
+}      "image": "assets/security1.jpg",
       "description": "A look at the biggest cybersecurity breaches affecting companies in 2025...",
       "date": "2025-01-05",
       "featured": true
