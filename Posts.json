@@ -2,7 +2,7 @@
   "posts": [
     {
       "id": 1,
-      "slug": "React2Shell CVE-2025-55182",
+      "slug": "react2shell-cve-2025-55182",
       "title": "React2Shell CVE-2025-55182",
       "category": "Web Security",
       "image": "react2shell.webp",
