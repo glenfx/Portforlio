@@ -297,7 +297,7 @@ async function load() {
 
     postTitle.innerText = post.title;
     postMeta.innerText = `${post.date} • ${post.category}`;
-    postContent.innerHTML = post.full || `<p>${post.description}</p>`;
+    postContent.innerHTML = post.content || `<p>${post.description}</p>`;
 
     buildTOC();
     renderRelated(posts, post);
