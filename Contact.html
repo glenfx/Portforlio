@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact • Glen Trevor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #0d1117;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    nav {
+      width: 100%;
+      padding: 20px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: rgba(13, 17, 23, 0.7);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid #222;
+    }
+    nav a {
+      color: #fff;
+      margin-left: 25px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    nav a:hover { color: #58a6ff; }
+
+    header {
+      margin-top: 120px;
+      text-align: center;
+      animation: fadeDown 1s ease;
+    }
+    header h1 {
+      font-size: 48px;
+      font-weight: 600;
+    }
+    header p { margin-top: 10px; color: #999; }
+
+    .container {
+      width: 85%;
+      margin: 60px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      gap: 35px;
+      animation: fadeUp 1.2s ease;
+    }
+
+    .card {
+      background: #161b22;
+      padding: 30px;
+      border-radius: 16px;
+      border: 1px solid #222;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      transition: 0.4s;
+    }
+    .card:hover { transform: translateY(-6px); }
+
+    .card h3 { margin-bottom: 15px; font-weight: 600; }
+    .card p { color: #bbb; line-height: 1.6; margin-bottom: 15px; }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      background: #0d1117;
+      border: 1px solid #333;
+      color: #fff;
+      border-radius: 10px;
+      resize: none;
+      transition: 0.3s;
+    }
+    form input:focus, form textarea:focus {
+      border-color: #58a6ff;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      background: #238636;
+      border-radius: 10px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover { background: #2ea043; }
+
+    .social-links a {
+      display: inline-block;
+      margin-right: 15px;
+      font-size: 18px;
+      color: #58a6ff;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .social-links a:hover { color: #8bbcf7; }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div style="font-weight:600; font-size:22px;">Glen Trevor</div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="https://www.linkedin.com/in/kenfack-trevor-36a925336/">linkedIn</a>
+      <a href="https://www.facebook.com/glen.fx.2025">Facebook</a>
+      <a href="https://www.instagram.com/glenf_x?igsh=MXRrY3B1cWNkcjl1Nw==">Instagram</a>
+      <a href="http://tiktok.com/@trevor_security" style="color:#58a6ff">Tiktok</a>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Let's Talk</h1>
+    <p>Have a project, collaboration idea, or question? Reach out to me anytime.</p>
+  </header>
+
+  <div class="container">
+    
+    <!-- CONTACT FORM -->
+    <div class="card">
+      <h3>Send a Message</h3>
+      <form id="contactForm" onsubmit="handleContact(event)">
+        <input id="name" placeholder="Your name" required>
+        <input id="email" type="email" placeholder="Email" required>
+        <textarea id="message" rows="6" placeholder="Your message..." required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+
+    <!-- CONTACT DETAILS -->
+    <div class="card">
+      <h3>Contact Info</h3>
+      <p><strong>Email:</strong> glentrevor64@gmail.com</p>
+      <p><strong>Location:</strong> Cameroon</p>
+      <div class="social-links" style="margin-top:20px;">
+        <a href="https://github.com/glenfx">GitHub</a>
+        <a href="https://linkedin.com/in/kenfack-trevor-36a925336">LinkedIn</a>
+      </div>
+
+      <hr style="border-color:#333; margin:20px 0;">
+
+      <h3>Other Ways to Reach Me</h3>
+      <p>✔ Professional inquiries</p>
+      <p>✔ Cybersecurity consultancy</p>
+      <p>✔ Network engineering support</p>
+      <p>✔ Project collaborations</p>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function(){ emailjs.init("loBWPKumkpK-Lj48d"); })();
+
+    function handleContact(e){
+      e.preventDefault();
+      const params = {
+        from_name: document.getElementById("name").value,
+        reply_to: document.getElementById("email").value,
+        message: document.getElementById("message").value,
+      };
+
+      emailjs.send("service_ra0p4hl", "template_prfh9x4", params)
+      .then(()=>{
+        alert("Message sent successfully!");
+        document.getElementById("contactForm").reset();
+      })
+      .catch(err=>{
+        console.error(err);
+        alert("Failed to send message.");
+      });
+    }
+  </script>
+
+</body>
+</html>
+

@@ -1,0 +1,374 @@
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    background: var(--card);
+    position: absolute;
+    top: 64px;
+    right: 16px;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+    z-index: 999;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+@media (max-width: 600px) {
+  .carousel-img {
+    width: 140px;
+    height: 190px;
+  }
+}
+
+ :root.light {
+  --bg: #1d1818;
+  --card: #322533;
+  --text: #6f7d9e;
+  --muted: #e5eee4;
+  --accent: #6face6;
+  --accent-2: #22c55e;
+}
+
+  /* Grid and card styles for GitHub projects */
+  #repo-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .repo-card {
+    background: #111827;
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 3px solid var(--accent);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .repo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  }
+
+  .repo-card h3 {
+    margin: 0 0 10px;
+    color: var(--accent);
+  }
+
+  .repo-card p {
+    margin: 0 0 12px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .repo-card a {
+    text-decoration: none;
+    color: var(--accent);
+    font-weight: 600;
+    margin-top: auto;
+    align-self: flex-start;
+  }
+
+  /* Fade-in animation for reveal */
+  .repo-card.fade-up {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: fadeUp 0.7s forwards;
+  }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .project-card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 16px;
+  border-left: 3px solid var(--accent);
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.project-card.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s, transform 0.6s;
+}
+.project-card.visible { opacity:1; transform: translateY(0);}
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.hero-card {
+  flex: 1 1 480px;
+  background: var(--card);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cards-grid .card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.cards-grid .card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+#backToTop {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #000;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  z-index: 1000;
+}
+
+#backToTop.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+#backToTop:hover {
+  transform: translateY(-3px);
+}
+
+.theme-toggle {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--muted);
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.25s ease;
+}
+
+.theme-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.profile-avatar {
+  width: 180px;              /* adjust size */
+  height: 180px;
+  border-radius: 50%;        /* circle */
+  object-fit: cover;         /* crops nicely */
+  border: 3px solid var(--accent); /* optional border */
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3); /* subtle shadow */
+  transition: transform 0.3s ease;
+}
+
+.profile-avatar:hover {
+  transform: scale(1.05); /* small zoom on hover */
+}
+.carousel-img {
+  width: 180px;           /* rectangular */
+  height: 240px;
+  border-radius: 12px;    /* rounded corners */
+  object-fit: cover;
+  border: 2px solid var(--accent);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carousel-img:hover {
+  transform: scale(1.05) rotate(-1deg);  /* slight tilt on hover */
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+
+/* Carousel container */
+.carousel-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+/* Track that moves images */
+.carousel-track {
+  display: flex;
+  gap: 16px;
+  animation: scrollCarousel 25s linear infinite;
+}
+
+/* Individual carousel images */
+.carousel-img {
+  width: 180px;
+  height: 240px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 2px solid var(--accent);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-origin: center bottom;
+}
+
+/* Hover effect */
+.carousel-img:hover {
+  transform: scale(1.05) rotate(-1deg);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+
+/* Vertical offset for strange line effect */
+.carousel-track img:nth-child(odd) {
+  transform: translateY(-10px);
+}
+.carousel-track img:nth-child(even) {
+  transform: translateY(10px);
+}
+
+/* Carousel animation */
+@keyframes scrollCarousel {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Duplicate the images for infinite scroll effect */
+.carousel-track::after {
+  content: "";
+  display: flex;
+  flex: none;
+  width: 100%;
+}
+
+/* Typewriter effect */
+.title {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid var(--accent);
+  animation: typing 2.5s steps(30, end), blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* Glitch hover effect */
+.glitch:hover {
+  position: relative;
+  color: var(--accent);
+  animation: glitch 0.3s;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+#particles-js {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;  /* behind content */
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+}
+
+.logo-cloud {
+  overflow: hidden;
+  background: #111827;
+  padding: 12px 0;
+}
+
+.marquee {
+  display: flex;
+  gap: 40px;
+  animation: scrollLogos 20s linear infinite;
+}
+
+.marquee img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  filter: grayscale(30%);
+  transition: transform 0.3s;
+}
+
+.marquee img:hover {
+  transform: scale(1.2);
+  filter: grayscale(0%);
+}
+
+@keyframes scrollLogos {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.project-card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 18px;
+  border-left: 3px solid var(--accent);
+  transition:
+    border-left-width 0.25s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  border-left-width: 8px;
+  transform: translateY(-6px);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.45);
+}
+
+#particles-js {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none; /* 🔑 THIS FIXES THE ISSUE */
+}

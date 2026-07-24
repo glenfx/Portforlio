@@ -1,0 +1,16 @@
+.post-full {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.post-image {
+  width: 100%;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.post-content {
+  font-size: 18px;
+  line-height: 1.6;
+}
