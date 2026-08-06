@@ -1,30 +1,23 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta property="og:title" content="Glen Trevor — Cybersecurity & Network Engineer">
-<meta property="og:description" content="Cybersecurity researcher & Network Engineer. Projects, blog, and security tooling. Sofware, Apps, Flutter">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Glen Trevor — Cybersecurity & Network Engineer">
+<meta property="og:description" content="Cybersecurity researcher & Network Engineer. Projects, blog, and security tooling.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://kenfack-glen-trevor.netlify.app/"> <!--https://yourdomain.com-->
-<meta property="og:image" content="https://kenfack-glen-trevor.netlify.app/Carousel/photo_13_2026-02-06_14-23-15.jpg"> <!--https://yourdomain.com/og-image.jpg-->
+<meta property="og:url" content="https://kenfack-glen-trevor.netlify.app/">
+<meta property="og:image" content="https://kenfack-glen-trevor.netlify.app/Carousel/photo_13_2026-02-06_14-23-15.jpg">
 <meta name="google-site-verification" content="SsPjJ89msDROb5eqjPp58zkSoz3FlyI-8qIFAvDg7c4" />
 <meta name="twitter:card" content="summary_large_image">
+<title>Kenfack Glen Trevor — Cybersecurity & Network Engineer</title>
+<meta name="description" content="Portfolio of Kenfack Glen Trevor — Cybersecurity & Network Engineer. Projects, blog, GitHub activity, and contact." />
+<link rel="canonical" href="https://kenfack-glen-trevor.netlify.app/">
+<link rel="icon" type="image/png" href="/favicon.png">
 
-  <title>Kenfack Glen Trevor — Cybersecurity & Network Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <meta name="description" content="Portfolio of Kenfack Glen Trevor — Cybersecurity & Network Engineer. Projects, blog, GitHub activity, and contact." />
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="style2.css">
-  <link rel="canonical" href="https://kenfack-glen-trevor.netlify.app/">
-
-
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-
-  <script type="application/ld+json">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -40,377 +33,660 @@
   ]
 }
 </script>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Kenfack Glen Trevor",
-  "url": "https://kenfack-glen-trevor.netlify.app/",
-  "logo": "https://kenfack-glen-trevor.netlify.app/favicon.png"
-}
-  </script>
-<link rel="icon" type="image/png" href="/favicon.png">
-<link rel="shortcut icon" href="/favicon.png">
 
+<style>
+:root{
+  --bg:#080b10;
+  --bg-panel:#0d1219;
+  --bg-panel-2:#111823;
+  --line:#1c2733;
+  --text:#e7edf3;
+  --muted:#8894a1;
+  --accent:#22e0ac;      /* signal green-teal */
+  --accent-dim:#14634c;
+  --accent-2:#4c8dff;    /* packet blue */
+  --alert:#ff5c6a;
+  --radius:14px;
+  --maxw:1180px;
+  --font-display:'Space Grotesk', sans-serif;
+  --font-body:'Inter', sans-serif;
+  --font-mono:'JetBrains Mono', monospace;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font-body);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:'';
+  position:fixed; inset:0;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size:64px 64px;
+  opacity:.18;
+  pointer-events:none;
+  z-index:0;
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 0%, black 0%, transparent 70%);
+}
+::selection{background:var(--accent); color:#04140f}
+a{color:inherit}
+img{max-width:100%; display:block}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px; position:relative; z-index:1}
+
+/* ---------- header ---------- */
+header{
+  position:sticky; top:0; z-index:50;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 24px;
+  backdrop-filter:blur(10px);
+  background:rgba(8,11,16,.72);
+  border-bottom:1px solid var(--line);
+}
+.brand{display:flex; align-items:center; gap:12px}
+.logo{
+  width:38px; height:38px; border-radius:9px;
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-mono); font-weight:600; font-size:13px;
+  background:linear-gradient(145deg, var(--accent-dim), transparent);
+  border:1px solid var(--accent-dim); color:var(--accent);
+}
+.brand a{text-decoration:none}
+.brand-name{font-family:var(--font-display); font-weight:600; font-size:15px; letter-spacing:.2px}
+.brand-role{font-family:var(--font-mono); font-size:11px; color:var(--muted); letter-spacing:.5px; text-transform:uppercase}
+
+nav{display:flex; align-items:center; gap:28px}
+nav a{
+  text-decoration:none; color:var(--muted); font-size:14px; font-weight:500;
+  position:relative; transition:color .2s;
+}
+nav a:not(.btn):hover{color:var(--text)}
+nav a:not(.btn)::after{
+  content:''; position:absolute; left:0; right:0; bottom:-6px; height:1px;
+  background:var(--accent); transform:scaleX(0); transform-origin:left;
+  transition:transform .25s ease;
+}
+nav a:not(.btn):hover::after{transform:scaleX(1)}
+.hamburger{display:none; background:none; border:1px solid var(--line); color:var(--text); border-radius:8px; width:38px; height:38px; font-size:18px; cursor:pointer}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:11px 20px; border-radius:9px;
+  background:var(--accent); color:#04140f;
+  font-weight:600; font-size:13.5px; text-decoration:none;
+  font-family:var(--font-display);
+  border:1px solid var(--accent);
+  transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.btn:hover{transform:translateY(-2px); box-shadow:0 10px 30px -10px rgba(34,224,172,.5)}
+.btn.ghost{background:transparent; color:var(--text); border:1px solid var(--line)}
+.btn.ghost:hover{border-color:var(--accent); color:var(--accent); box-shadow:none}
+.btn.small{padding:8px 14px; font-size:12.5px}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;
+  min-height:92vh;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  align-items:center;
+  gap:40px;
+  padding:70px 24px 60px;
+  max-width:var(--maxw); margin:0 auto;
+  overflow:hidden;
+}
+.hero-copy{position:relative; z-index:3}
+.eyebrow{
+  font-family:var(--font-mono); font-size:12.5px; color:var(--accent);
+  letter-spacing:1.5px; text-transform:uppercase;
+  display:flex; align-items:center; gap:10px; margin-bottom:18px;
+}
+.eyebrow .dot{width:7px; height:7px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px rgba(34,224,172,.15); animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+h1.title{
+  font-family:var(--font-display);
+  font-size:clamp(2.4rem, 4.6vw, 3.6rem);
+  line-height:1.08; font-weight:700;
+  margin:0 0 18px;
+  letter-spacing:-.5px;
+}
+h1.title .accent-text{color:var(--accent)}
+.typed-line{
+  font-family:var(--font-mono); font-size:15px; color:var(--muted);
+  margin:0 0 22px; min-height:22px;
+}
+.typed-line .cursor{display:inline-block; width:8px; background:var(--accent); animation:blink 1s step-end infinite; margin-left:2px}
+@keyframes blink{50%{opacity:0}}
+
+.subtitle{color:var(--muted); font-size:15.5px; max-width:56ch; margin:0 0 30px}
+.hero-cta{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:36px}
+
+.stack-row{display:flex; gap:10px; flex-wrap:wrap}
+.chip{
+  font-family:var(--font-mono); font-size:12px; color:var(--muted);
+  border:1px solid var(--line); padding:6px 12px; border-radius:100px;
+  background:var(--bg-panel);
+}
+
+/* portrait + network canvas */
+.hero-visual{
+  position:relative; z-index:2;
+  aspect-ratio:4/5; border-radius:20px; overflow:hidden;
+  border:1px solid var(--line);
+  background:#050709;
+  box-shadow:0 40px 80px -30px rgba(0,0,0,.7);
+}
+.hero-visual img{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  filter:grayscale(.5) contrast(1.08) brightness(.62);
+  transform:scale(1.02);
+}
+.hero-visual .tint{
+  position:absolute; inset:0;
+  background:
+    linear-gradient(180deg, rgba(8,11,16,.05) 0%, rgba(8,11,16,.85) 100%),
+    linear-gradient(120deg, rgba(34,224,172,.22), rgba(76,141,255,.14));
+  mix-blend-mode:multiply;
+}
+.hero-visual canvas{position:absolute; inset:0; width:100%; height:100%; mix-blend-mode:screen; opacity:.9}
+.hero-visual .frame-label{
+  position:absolute; left:16px; bottom:16px; z-index:4;
+  font-family:var(--font-mono); font-size:11px; color:var(--accent);
+  background:rgba(5,7,9,.6); border:1px solid var(--accent-dim);
+  padding:5px 10px; border-radius:6px; letter-spacing:.5px;
+}
+.hero-visual .scan{
+  position:absolute; left:0; right:0; height:2px; z-index:4;
+  background:linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity:.7; animation:scan 4.5s ease-in-out infinite;
+}
+@keyframes scan{0%{top:0%}50%{top:96%}100%{top:0%}}
+
+.bg-network{position:fixed; inset:0; z-index:0; opacity:.5; pointer-events:none}
+
+/* ---------- sections ---------- */
+section{padding:90px 24px; position:relative; z-index:1}
+.section-inner{max-width:var(--maxw); margin:0 auto}
+.section-head{display:flex; align-items:baseline; justify-content:space-between; gap:20px; margin-bottom:40px; flex-wrap:wrap}
+.section-head .eyebrow{margin-bottom:8px}
+.section-head h2{font-family:var(--font-display); font-size:clamp(1.7rem,3vw,2.3rem); margin:0; font-weight:700}
+.section-head .tag-muted{font-family:var(--font-mono); font-size:12.5px; color:var(--muted)}
+
+.reveal{opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s ease}
+.reveal.visible{opacity:1; transform:translateY(0)}
+
+/* about */
+.about-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:48px}
+.about-lead{font-size:16px; color:#c6d0da; max-width:60ch}
+.about-lead p{margin:0 0 16px}
+.skill-list{list-style:none; margin:0; padding:0; display:grid; gap:10px}
+.skill-list li{
+  font-size:14px; color:var(--muted); padding:10px 0 10px 22px; position:relative;
+  border-bottom:1px solid var(--line);
+}
+.skill-list li::before{content:'›'; position:absolute; left:0; color:var(--accent); font-family:var(--font-mono)}
+.cred-card{background:var(--bg-panel); border:1px solid var(--line); border-radius:var(--radius); padding:22px}
+.cred-card h3{font-family:var(--font-display); font-size:14px; margin:0 0 14px; letter-spacing:.3px}
+.cred-item{display:flex; justify-content:space-between; gap:12px; font-size:13px; padding:9px 0; border-bottom:1px dashed var(--line); color:#c6d0da}
+.cred-item:last-child{border-bottom:none}
+.cred-item span{color:var(--muted); font-family:var(--font-mono); font-size:11px}
+
+/* projects */
+.grid-2{display:grid; grid-template-columns:repeat(2,1fr); gap:22px}
+.project-card{
+  background:var(--bg-panel); border:1px solid var(--line); border-radius:var(--radius);
+  padding:26px; position:relative; overflow:hidden;
+  transition:border-color .25s, transform .25s;
+}
+.project-card::before{
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg, var(--accent), var(--accent-2));
+  transform:scaleX(0); transform-origin:left; transition:transform .3s ease;
+}
+.project-card:hover{transform:translateY(-4px); border-color:var(--accent-dim)}
+.project-card:hover::before{transform:scaleX(1)}
+.project-num{font-family:var(--font-mono); font-size:11px; color:var(--accent); margin-bottom:14px; display:block}
+.project-title{font-family:var(--font-display); font-size:18px; margin:0 0 10px; font-weight:600}
+.project-desc{color:var(--muted); font-size:14px; margin:0 0 20px}
+.tags{display:flex; gap:8px; flex-wrap:wrap}
+.tags .tag{font-family:var(--font-mono); font-size:11px; color:var(--accent-2); border:1px solid #1d2b45; background:rgba(76,141,255,.08); padding:4px 10px; border-radius:100px}
+
+/* github */
+.repo-card{
+  background:var(--bg-panel); border:1px solid var(--line); border-radius:var(--radius);
+  padding:20px; opacity:0; animation:fadeUp .6s ease forwards;
+}
+@keyframes fadeUp{from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)}}
+.repo-card h3{font-family:var(--font-mono); font-size:14px; margin:0 0 8px; color:var(--accent)}
+.repo-card p{font-size:13px; color:var(--muted); margin:0 0 14px; min-height:34px}
+.repo-card a{font-family:var(--font-mono); font-size:12px; color:var(--accent-2); text-decoration:none}
+.repo-card a:hover{text-decoration:underline}
+.grid-auto{display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:18px}
+
+/* logo marquee */
+.logo-cloud{padding:50px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); overflow:hidden}
+.marquee{display:flex; gap:64px; width:max-content; animation:scroll 28s linear infinite; align-items:center}
+.marquee img{height:30px; width:auto; opacity:.5; filter:grayscale(1) brightness(1.4)}
+@keyframes scroll{from{transform:translateX(0)} to{transform:translateX(-50%)}}
+
+/* contact / footer */
+.cta-band{
+  border-radius:20px; border:1px solid var(--line);
+  background:radial-gradient(circle at 20% 20%, rgba(34,224,172,.12), transparent 60%), var(--bg-panel);
+  padding:56px; display:flex; align-items:center; justify-content:space-between; gap:30px; flex-wrap:wrap;
+}
+.cta-band h2{font-family:var(--font-display); font-size:1.8rem; margin:0 0 8px}
+.cta-band p{color:var(--muted); margin:0; max-width:44ch}
+
+footer{padding:40px 24px; border-top:1px solid var(--line); text-align:center}
+footer .muted{color:var(--muted); font-size:13px; font-family:var(--font-mono)}
+
+#backToTop{
+  position:fixed; right:22px; bottom:22px; z-index:60;
+  width:42px; height:42px; border-radius:50%;
+  background:var(--accent); color:#04140f; border:none; cursor:pointer;
+  opacity:0; pointer-events:none; transform:translateY(10px);
+  transition:opacity .25s, transform .25s; font-size:16px;
+}
+#backToTop.show{opacity:1; pointer-events:auto; transform:translateY(0)}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr; padding-top:40px}
+  .hero-visual{order:-1; aspect-ratio:16/10}
+  .about-grid{grid-template-columns:1fr}
+  .grid-2{grid-template-columns:1fr}
+  nav{display:none}
+  .hamburger{display:flex; align-items:center; justify-content:center}
+  nav.show{display:flex; position:absolute; top:100%; left:0; right:0; background:var(--bg-panel); flex-direction:column; padding:20px; border-top:1px solid var(--line)}
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important; transition:none !important}
+}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <div class="logo"><a href="/index.html">GT</a></div>
-        <div>
-          <div style="font-weight:800">Kenfack Glen Trevor</div>
-          <div style="font-size:12px;color:var(--muted)">Cybersecurity • Network Engineer</div>
+
+<canvas id="bgNetwork" class="bg-network"></canvas>
+
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <a href="/index.html" class="logo">GT</a>
+      <div>
+        <div class="brand-name">Kenfack Glen Trevor</div>
+        <div class="brand-role">Cybersecurity · Network Engineer</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="Blog.html">Blog</a>
+      <a href="#github">GitHub</a>
+      <a href="Contact.html" class="btn small">Get in touch</a>
+    </nav>
+    <button class="hamburger" aria-label="Open menu" onclick="document.querySelector('nav').classList.toggle('show')">☰</button>
+  </header>
+</div>
+
+<!-- HERO -->
+<main class="hero">
+  <div class="hero-copy reveal visible">
+    <div class="eyebrow"><span class="dot"></span> Available for freelance & internships</div>
+    <h1 class="title">Securing networks,<br>one <span class="accent-text">packet</span> at a time.</h1>
+    <p class="typed-line"><span id="typedText"></span><span class="cursor">&nbsp;</span></p>
+    <p class="subtitle">Cybersecurity researcher and network engineer building secure, resilient systems — finding vulnerabilities, hardening infrastructure, and automating security workflows across cloud and on-prem environments.</p>
+    <div class="hero-cta">
+      <a class="btn" href="#projects">Explore projects</a>
+      <a class="btn ghost" href="/Kenfack_Glen_Trevor_CV_2026.pdf">Download CV</a>
+    </div>
+    <div class="stack-row">
+      <span class="chip">Python</span>
+      <span class="chip">Docker · Kubernetes</span>
+      <span class="chip">Wireshark · Nmap</span>
+      <span class="chip">AWS · Terraform</span>
+      <span class="chip">CCNA · Security+</span>
+    </div>
+  </div>
+
+  <div class="hero-visual reveal visible">
+    <img src="/Carousel/photo_16_2026-02-06_14-23-15.jpg" alt="Glen Trevor">
+    <div class="tint"></div>
+    <canvas id="portraitNetwork"></canvas>
+    <div class="scan"></div>
+    <div class="frame-label">// scan_target: self.jpg — status: verified</div>
+  </div>
+</main>
+
+<!-- ABOUT -->
+<section id="about" class="reveal">
+  <div class="section-inner">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Profile</div>
+        <h2>About</h2>
+      </div>
+      <div class="tag-muted">Cameroon · Remote-friendly</div>
+    </div>
+
+    <div class="about-grid">
+      <div>
+        <div class="about-lead">
+          <p>I specialize in cloud-native architecture, cybersecurity engineering, and DevSecOps automation, with strong expertise in Python development, containerization, and Linux system administration.</p>
+          <p>Certified in CCNA, CompTIA Security+, and AWS Solutions Architect, with hands-on experience across penetration testing labs, cloud infrastructure deployments, automated monitoring systems, and secure network design.</p>
+          <p>I build secure, scalable, and automated systems that improve operational efficiency and strengthen security posture.</p>
         </div>
+        <ul class="skill-list">
+          <li>Network design and hardening — LAN/WAN, VLANs, routing</li>
+          <li>Vulnerability assessment & penetration testing</li>
+          <li>Cloud & DevOps — AWS, Azure, Terraform, Docker, Kubernetes, CI/CD</li>
+          <li>Scripting & automation — Python, Bash</li>
+          <li>Packet analysis and monitoring</li>
+        </ul>
       </div>
 
-      <nav>
-        <a href="/index.html">Home</a>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="Blog.html">Blog</a>
-        <a href="#github">GitHub</a>
-        <a href="Contact.html">Contact</a>
-        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
-  🌙
-</button>
-
-      </nav>
-
-      <button class="hamburger" aria-label="Open menu" onclick="toggleMenu()">☰</button>
-    </header>
-
-    <!-- HERO -->
-    <main id="home" class="hero">
-      <div class="hero-card reveal">
-        <h1 class="title glitch">Hi — I’m <span class="highlight" style="background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text; background-clip:text;color:transparent;">Glen Trevor</span></h1>
-        <p class="subtitle">Cybersecurity Researcher & Network Engineer building secure, resilient systems. <br>Find  vulnerabilities, design hardened networks, and automate security workflows.
-<br>Specialize in cloud architecture, Python development, DevOps automation, containerization (Docker/Kubernetes), and Linux administration.<br>
-Certified in CCNA, CompTIA Security+, AWS Solutions Architect, with hands-on projects in penetration testing labs, cloud deployments, automated monitoring systems, and network infrastructure design..</p>
-        <div class="cta">
-          <a class="btn" href="#projects">Explore Projects</a>
-          <a class="btn ghost" href="/Contact.html">Get in touch</a>
-        </div>
-
-        <div class="cards-grid" style="margin-top:18px">
-          <div class="card">
-            <div class="skill">Languages</div>
-            <div class="muted" style="font-size:13px;margin-top:8px">Python • Bash • JavaScript • SQL</div>
-          </div>
-          <div class="card">
-            <div class="skill">Tools</div>
-            <div class="muted" style="font-size:13px;margin-top:8px">Wireshark • Nmap • Metasploit • Docker</div>
-          </div>
-          <div class="card">
-            <div class="skill">Focus</div>
-            <div class="muted" style="font-size:13px;margin-top:8px">Network Security • Pentesting • Automation</div>
-          </div>
-        </div>
-
+      <div class="cred-card">
+        <h3>Education & Certifications</h3>
+        <div class="cred-item"><span>Degree</span> B.Sc. Computer Engineering</div>
+        <div class="cred-item"><span>Cert</span> CompTIA Security+</div>
+        <div class="cred-item"><span>Cert</span> CCNA — Cisco Certified Network Associate</div>
+        <div class="cred-item"><span>Cert</span> Google IT Support Professional</div>
+        <div class="cred-item"><span>Cert</span> Certified Cybersecurity Educator</div>
+        <div class="cred-item"><span>Cert</span> AWS Solutions Architect</div>
       </div>
-      <div id="particles-js"></div>
-
-
-      <!-- Right column: quick contact / snapshot -->
-      <aside class="hero-card reveal">
-        <h3 style="margin-top:0">Snapshot</h3>
-        <p class="muted" style="font-size:14px">Available for freelance/ internships. Open to collaboration on security research, tooling, and network automation.</p>
-
-        <div style="margin-top:14px">
-          <div style="font-size:12px;color:var(--muted)">Location</div>
-          <div style="font-weight:700">Cameroon</div>
-        </div>
-
-        <div style="margin-top:12px">
-          <div style="font-size:12px;color:var(--muted)">Resume</div>
-          <a class="btn" href="/Kenfack_Glen_Trevor_CV_2026.pdf" style="margin-top:8px;display:inline-block">Download CV</a>
-        </div>
-
-        <div style="margin-top:18px">
-          <div style="font-size:12px;color:var(--muted)">Social</div>
-          <div style="display:flex;gap:8px;margin-top:8px">
-            <a class="tag" href="https://www.linkedin.com/in/kenfack-trevor-36a925336/">LinkedIn</a>
-            <a class="tag" href="https://github.com/glenfx/">GitHub</a>
-            <a class="tag" href="https://www.facebook.com/glen.fx.2025">Facebook</a>
-          </div>
-        </div>
-      </aside>
-    </main>
-
-    <!-- PROFILE IMAGE -->
-<!-- PROFILE IMAGE CAROUSEL -->
-<!-- PROFILE IMAGE CAROUSEL -->
-<section id="profile-carousel" class="reveal">
-  <div class="carousel-container hero-card">
-    <div class="carousel-track">
-      <img src="Carousel/photo_13_2026-02-06_14-23-15.jpg" alt="Glen Trevor 1" class="carousel-img">
-      <img src="Carousel/photo_20_2026-02-06_14-23-15.jpg" alt="Glen Trevor 2" class="carousel-img">
-      <img src="Carousel/photo_26_2026-02-06_14-23-15.jpg" alt="Glen Trevor 3" class="carousel-img">
-      <img src="Carousel/photo_25_2026-02-06_14-23-15.jpg" alt="Glen Trevor 4" class="carousel-img">
-      <img src="Carousel/photo_7_2026-02-06_14-23-15.jpg" alt="Glen Trevor 5" class="carousel-img">
-      <img src="Carousel/photo_14_2026-02-06_14-23-15.jpg" alt="Glen Trevor 6" class="carousel-img">
-      <img src="Carousel/photo_16_2026-02-06_14-23-15.jpg" alt="Glen Trevor 8" class="carousel-img">
-      <img src="Carousel/photo_1_2026-02-06_14-23-15.jpg" alt="Glen Trevor 10" class="carousel-img">
-      <img src="Carousel/photo_19_2026-02-06_14-23-15.jpg" alt="Glen Trevor 11" class="carousel-img">
-      <img src="Carousel/photo_16_2026-02-06_14-23-15.jpg" alt="Glen Trevor 12" class="carousel-img">
     </div>
   </div>
 </section>
 
-
-
-
-    <!-- ABOUT -->
-    <section id="about" class="reveal">
-      <div class="section-title">
-        <h2>About</h2>
-        <div class="muted">•</div>
-      </div>
-      <div class="hero-card">
-        <p style="margin:0 0 12px">Specializing in cloud-native architecture, cybersecurity engineering, and DevSecOps automation, with strong expertise in Python development, containerization (Docker/Kubernetes), and Linux system administration.
-
-Certified in CCNA, CompTIA Security+, and AWS Solutions Architect, with hands-on experience across penetration testing labs, cloud infrastructure deployments, automated monitoring systems, and secure network design.
-
-I build secure, scalable, and automated systems that improve operational efficiency and strengthen security posture.</p>
-        <div class="grid-2" style="margin-top:12px">
-          <div>
-            <h3 style="margin:0 0 8px">Experience & Skills</h3>
-            <ul class="muted" style="margin:0;padding-left:18px">
-              <li>Network design and hardening (LAN/WAN, VLANs, routing)</li>
-              <li>Vulnerability assessment & pentesting</li>
-              <li>Cloud & DevOps: AWS, Azure, Terraform, Docker, Kubernetes, CI/CD pipelines, Infrastructure as Code</li>
-              <li>Scripting & automation (Python, Bash)</li>
-              <li>Packet analysis and monitoring</li>
-
-            </ul>
-          </div>
-          <div>
-            <h3 style="margin:0 0 8px">Education & Certifications</h3>
-            <div class="muted">B.Sc. Computer Engineering</div>
-            <div class="muted">CompTIA Security+</div>
-            <div class="muted">CCNA – Cisco Certified Network Associate</div>
-            <div class="muted">Google IT Support Professional Certificate</div>
-            <div class="muted">Certified Cybersecurity Educator</div>
-            <div class="muted">CCNA – Cisco Certified Network Associate</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="reveal">
-      <div class="section-title">
+<!-- PROJECTS -->
+<section id="projects" class="reveal">
+  <div class="section-inner">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Selected work</div>
         <h2>Projects</h2>
-        <div class="muted">Selected work</div>
       </div>
+    </div>
 
-      <div class="grid-2">
-        <article class="project-card">
-          <h3 class="project-title">NetGuard — Network Monitoring Toolkit</h3>
-          <p class="project-desc">A lightweight network monitoring dashboard that ingests NetFlow and presents alerts, flow analytics, and quick packet capture links for troubleshooting.</p>
-          <div class="tags">
-            <div class="tag">Python</div>
-            <div class="tag">Flask</div>
-            <div class="tag">Docker</div>
-          </div>
-        </article>
+    <div class="grid-2">
+      <article class="project-card">
+        <span class="project-num">01 / monitoring</span>
+        <h3 class="project-title">NetGuard — Network Monitoring Toolkit</h3>
+        <p class="project-desc">A lightweight network monitoring dashboard that ingests NetFlow and presents alerts, flow analytics, and quick packet capture links for troubleshooting.</p>
+        <div class="tags"><div class="tag">Python</div><div class="tag">Flask</div><div class="tag">Docker</div></div>
+      </article>
 
-        <article class="project-card">
-          <h3 class="project-title">VulnScan Automation</h3>
-          <p class="project-desc">Automated vulnerability scanning pipeline that runs scheduled scans, deduplicates results and opens tickets for remediation with playbooks.</p>
-          <div class="tags">
-            <div class="tag">Bash</div>
-            <div class="tag">Nmap</div>
-            <div class="tag">Metasploit</div>
-          </div>
-        </article>
+      <article class="project-card">
+        <span class="project-num">02 / automation</span>
+        <h3 class="project-title">VulnScan Automation</h3>
+        <p class="project-desc">Automated vulnerability scanning pipeline that runs scheduled scans, deduplicates results, and opens tickets for remediation with playbooks.</p>
+        <div class="tags"><div class="tag">Bash</div><div class="tag">Nmap</div><div class="tag">Metasploit</div></div>
+      </article>
 
-        <article class="project-card">
-          <h3 class="project-title">PacketPlay — Capture Analyzer</h3>
-          <p class="project-desc">Small web tool to upload pcap files and run automated heuristics to surface suspicious flows and indicators of compromise.</p>
-          <div class="tags">
-            <div class="tag">Wireshark</div>
-            <div class="tag">Python</div>
-            <div class="tag">Scapy</div>
-          </div>
-        </article>
+      <article class="project-card">
+        <span class="project-num">03 / analysis</span>
+        <h3 class="project-title">PacketPlay — Capture Analyzer</h3>
+        <p class="project-desc">Small web tool to upload pcap files and run automated heuristics to surface suspicious flows and indicators of compromise.</p>
+        <div class="tags"><div class="tag">Wireshark</div><div class="tag">Python</div><div class="tag">Scapy</div></div>
+      </article>
 
-        <article class="project-card">
-          <h3 class="project-title">Home Lab Automation</h3>
-          <p class="project-desc">Scripts and Ansible playbooks to deploy a reproducible home security lab (VLANs, IDS, vulnerable VM images for training).</p>
-          <div class="tags">
-            <div class="tag">Ansible</div>
-            <div class="tag">Bash</div>
-            <div class="tag">Virtualization</div>
-          </div>
-        </article>
-      </div>
-    </section>
-    <!-- GITHUB ACTIVITIES -->
-   <!-- ... Keep the existing head, header, hero, about, projects sections ... -->
-
-<!-- GITHUB PROJECTS -->
-<section id="github" class="reveal">
-  <div class="section-title">
-    <h2>GitHub Projects</h2>
-    <div class="muted">My latest repositories</div>
+      <article class="project-card">
+        <span class="project-num">04 / infrastructure</span>
+        <h3 class="project-title">Home Lab Automation</h3>
+        <p class="project-desc">Scripts and Ansible playbooks to deploy a reproducible home security lab — VLANs, IDS, and vulnerable VM images for training.</p>
+        <div class="tags"><div class="tag">Ansible</div><div class="tag">Bash</div><div class="tag">Virtualization</div></div>
+      </article>
+    </div>
   </div>
-
-  <div class="grid" id="repo-list" style="margin-top:25px;"></div>
 </section>
+
+<!-- GITHUB -->
+<section id="github" class="reveal">
+  <div class="section-inner">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Live</div>
+        <h2>GitHub Projects</h2>
+      </div>
+      <div class="tag-muted">Latest repositories</div>
+    </div>
+    <div class="grid-auto" id="repo-list"></div>
+  </div>
+</section>
+
+<!-- LOGO CLOUD -->
+<section class="logo-cloud reveal">
+  <div class="marquee" id="marquee"></div>
+</section>
+
+<!-- CONTACT CTA -->
+<section class="reveal">
+  <div class="section-inner">
+    <div class="cta-band">
+      <div>
+        <h2>Let's build something secure.</h2>
+        <p>Open to collaboration on security research, tooling, and network automation.</p>
+      </div>
+      <a class="btn" href="/Contact.html">Get in touch →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="muted">© <span id="year"></span> Kenfack Glen Trevor — built with care, secured by habit.</div>
+</footer>
+
+<button id="backToTop" aria-label="Back to top">↑</button>
 
 <script>
-  const GITHUB_REPO_USERNAME = "glenfx";
+document.getElementById('year').innerText = new Date().getFullYear();
 
-  async function loadRepos() {
-    try {
-      const response = await fetch(`https://api.github.com/users/${GITHUB_REPO_USERNAME}/repos?sort=updated`);
-      const repos = await response.json();
-
-      const repoContainer = document.getElementById("repo-list");
-      repoContainer.innerHTML = "";
-
-      repos.forEach((repo, i) => {
-        const div = document.createElement("div");
-        div.className = "repo-card fade-up";
-        div.style.animationDelay = `${i * 0.1}s`; // stagger animation
-        div.innerHTML = `
-          <h3>${repo.name}</h3>
-          <p>${repo.description || "No description available."}</p>
-          <a href="${repo.html_url}" target="_blank">View on GitHub →</a>
-        `;
-        repoContainer.appendChild(div);
-      });
-    } catch (err) {
-      console.error("Failed to load repos:", err);
-      document.getElementById("repo-list").innerHTML = '<div class="muted">Could not load GitHub repositories.</div>';
-    }
-  }
-
-  loadRepos();
-    // -----------------------------
-    // Basic interactive behaviour
-    // -----------------------------
-    function toggleMenu() {
-  document.querySelector('nav').classList.toggle('show');
-}
-
-
-    // Reveal on scroll
-    const reveals = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if(e.isIntersecting) e.target.classList.add('visible')
-      })
-    },{threshold:0.08});
-    reveals.forEach(r=>io.observe(r));
-
-    // Footer year
-    document.getElementById('year').innerText = new Date().getFullYear();
-
-    // -----------------------------
-    // GitHub public events fetch
-    // -----------------------------
-    // Replace the username here with your GitHub username to display live events.
-
-    // Smooth scroll for nav
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', e=>{
-        e.preventDefault();
-        const t = document.querySelector(a.getAttribute('href'));
-        if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
-      })
-    })
-  </script>
-  <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const backToTop = document.getElementById('backToTop');
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 400) {
-      backToTop.classList.add('show');
-    } else {
-      backToTop.classList.remove('show');
-    }
-  });
-
-  backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+/* smooth scroll for in-page nav */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', e=>{
+    const t = document.querySelector(a.getAttribute('href'));
+    if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); }
   });
 });
-const themeToggle = document.getElementById('themeToggle');
-const root = document.documentElement;
 
-// Load saved theme
-if (localStorage.getItem('theme') === 'light') {
-  root.classList.add('light');
-  themeToggle.textContent = '☀️';
-}
+/* reveal on scroll */
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+},{threshold:0.1});
+document.querySelectorAll('section.reveal').forEach(el=>io.observe(el));
 
-themeToggle.addEventListener('click', () => {
-  root.classList.toggle('light');
-
-  const isLight = root.classList.contains('light');
-  themeToggle.textContent = isLight ? '☀️' : '🌙';
-  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+/* back to top */
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', ()=>{
+  backToTop.classList.toggle('show', window.scrollY > 400);
 });
+backToTop.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
 
-particlesJS('particles-js', {
-  "particles": {
-    "number": { "value": 50, "density": { "enable": true, "value_area": 800 } },
-    "color": { "value": "#6face6" },
-    "shape": { "type": "circle" },
-    "opacity": { "value": 0.5 },
-    "size": { "value": 3 },
-    "line_linked": { "enable": true, "distance": 120, "color": "#6face6", "opacity": 0.4, "width": 1 },
-    "move": { "enable": true, "speed": 1.5 }
-  },
-  "interactivity": {
-    "events": { "onhover": { "enable": true, "mode": "grab" } }
+/* typed line */
+const lines = [
+  'nmap -sV --top-ports 1000 target.internal',
+  'building secure, resilient systems.',
+  'automating security workflows in Python.'
+];
+const typedEl = document.getElementById('typedText');
+let li=0, ci=0, deleting=false;
+function typeTick(){
+  const full = lines[li];
+  if(!deleting){
+    ci++;
+    typedEl.textContent = full.slice(0,ci);
+    if(ci===full.length){ deleting=true; setTimeout(typeTick,1500); return; }
+  } else {
+    ci--;
+    typedEl.textContent = full.slice(0,ci);
+    if(ci===0){ deleting=false; li=(li+1)%lines.length; }
   }
-});
-
- 
-</script>
-
- <button id="backToTop" aria-label="Back to top">↑</button>
-<section class="logo-cloud">
-  <div class="marquee">
-    <img src="/Carousel/download (1).png" alt="Python">
-    <img src="/Carousel/download (2).png" alt="Docker">
-    <img src="/Carousel/wordpress.png" alt="Kali Linux">
-    <img src="/Carousel/download (3).png" alt="Kali Linux">
-    <img src="/Carousel/download.png" alt="Linux">
-    <img src="/Carousel/pyhon_logo.jpg" alt="Cisco">
-    <!-- repeat logos to make continuous loop -->
-    <img src="/Carousel/owasp.png" alt="Python">
-     <img src="/Carousel/htb.png" alt="Python">
-    <img src="/Carousel/nesus.png" alt="Docker">
-    <img src="/Carousel/aws.png" alt="Kali Linux">
-     <img src="/Carousel/burp.png" alt="Python">
-     <img src="/Carousel/virtaulbox.png" alt="Docker">
-    <img src="/Carousel/google.png" alt="Docker">
-    <img src="/Carousel/wordpress.png" alt="Kali Linux">
-     <img src="/Carousel/owasp.png" alt="Python">
-    <img src="/Carousel/virtaulbox.png" alt="Docker">
-    <img src="/Carousel/wordpress.png" alt="Kali Linux">
-  </div>
-</section>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Glen Trevor",
-  "jobTitle": "Cybersecurity & Network Engineer",
-  "url": "#",
-  "sameAs": [
-    "https://github.com/glenfx",
-    "https://www.linkedin.com/in/kenfack-trevor-36a925336/"
-  ]
+  setTimeout(typeTick, deleting?28:42);
 }
+typeTick();
+
+/* ---- ambient full-page network canvas ---- */
+(function(){
+  const canvas = document.getElementById('bgNetwork');
+  const ctx = canvas.getContext('2d');
+  let w,h,nodes=[];
+  const COUNT = 46;
+  function resize(){
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = document.documentElement.scrollHeight;
+  }
+  function init(){
+    resize();
+    nodes = Array.from({length:COUNT}, ()=>({
+      x:Math.random()*w, y:Math.random()*h,
+      vx:(Math.random()-0.5)*0.15, vy:(Math.random()-0.5)*0.15
+    }));
+  }
+  function step(){
+    ctx.clearRect(0,0,w,h);
+    nodes.forEach(n=>{
+      n.x+=n.vx; n.y+=n.vy;
+      if(n.x<0||n.x>w) n.vx*=-1;
+      if(n.y<0||n.y>h) n.vy*=-1;
+    });
+    for(let i=0;i<nodes.length;i++){
+      for(let j=i+1;j<nodes.length;j++){
+        const a=nodes[i], b=nodes[j];
+        const d = Math.hypot(a.x-b.x, a.y-b.y);
+        if(d<170){
+          ctx.strokeStyle = `rgba(34,224,172,${(1-d/170)*0.12})`;
+          ctx.lineWidth=1;
+          ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+        }
+      }
+    }
+    nodes.forEach(n=>{
+      ctx.fillStyle='rgba(34,224,172,0.35)';
+      ctx.beginPath(); ctx.arc(n.x,n.y,1.6,0,Math.PI*2); ctx.fill();
+    });
+    requestAnimationFrame(step);
+  }
+  window.addEventListener('resize', resize);
+  window.addEventListener('load', ()=>{ resize(); });
+  init(); step();
+})();
+
+/* ---- portrait network overlay (denser, faster, packets) ---- */
+(function(){
+  const canvas = document.getElementById('portraitNetwork');
+  const ctx = canvas.getContext('2d');
+  let w,h,nodes=[],packets=[];
+  const COUNT = 26;
+  function resize(){
+    const r = canvas.parentElement.getBoundingClientRect();
+    w = canvas.width = r.width; h = canvas.height = r.height;
+  }
+  function init(){
+    resize();
+    nodes = Array.from({length:COUNT}, ()=>({
+      x:Math.random()*w, y:Math.random()*h,
+      vx:(Math.random()-0.5)*0.25, vy:(Math.random()-0.5)*0.25
+    }));
+  }
+  function maybeSpawnPacket(){
+    if(Math.random()<0.02 && nodes.length>1){
+      const a = nodes[Math.floor(Math.random()*nodes.length)];
+      const b = nodes[Math.floor(Math.random()*nodes.length)];
+      if(a!==b) packets.push({a,b,t:0});
+    }
+  }
+  function step(){
+    ctx.clearRect(0,0,w,h);
+    nodes.forEach(n=>{
+      n.x+=n.vx; n.y+=n.vy;
+      if(n.x<0||n.x>w) n.vx*=-1;
+      if(n.y<0||n.y>h) n.vy*=-1;
+    });
+    for(let i=0;i<nodes.length;i++){
+      for(let j=i+1;j<nodes.length;j++){
+        const a=nodes[i], b=nodes[j];
+        const d = Math.hypot(a.x-b.x, a.y-b.y);
+        if(d<110){
+          ctx.strokeStyle = `rgba(76,141,255,${(1-d/110)*0.35})`;
+          ctx.lineWidth=1;
+          ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+        }
+      }
+    }
+    nodes.forEach(n=>{
+      ctx.fillStyle='rgba(34,224,172,0.8)';
+      ctx.beginPath(); ctx.arc(n.x,n.y,1.8,0,Math.PI*2); ctx.fill();
+    });
+    maybeSpawnPacket();
+    packets.forEach(p=>{ p.t += 0.02; });
+    packets = packets.filter(p=>p.t<1);
+    packets.forEach(p=>{
+      const x = p.a.x + (p.b.x-p.a.x)*p.t;
+      const y = p.a.y + (p.b.y-p.a.y)*p.t;
+      ctx.fillStyle = '#22e0ac';
+      ctx.beginPath(); ctx.arc(x,y,2.4,0,Math.PI*2); ctx.fill();
+    });
+    requestAnimationFrame(step);
+  }
+  window.addEventListener('resize', resize);
+  init(); step();
+})();
+
+/* github repos */
+const GITHUB_REPO_USERNAME = "glenfx";
+async function loadRepos() {
+  try {
+    const response = await fetch(`https://api.github.com/users/${GITHUB_REPO_USERNAME}/repos?sort=updated`);
+    const repos = await response.json();
+    const repoContainer = document.getElementById("repo-list");
+    repoContainer.innerHTML = "";
+    repos.slice(0,9).forEach((repo, i) => {
+      const div = document.createElement("div");
+      div.className = "repo-card";
+      div.style.animationDelay = `${i * 0.07}s`;
+      div.innerHTML = `
+        <h3>${repo.name}</h3>
+        <p>${repo.description || "No description available."}</p>
+        <a href="${repo.html_url}" target="_blank">View on GitHub →</a>
+      `;
+      repoContainer.appendChild(div);
+    });
+  } catch (err) {
+    document.getElementById("repo-list").innerHTML = '<div class="tag-muted">Could not load GitHub repositories.</div>';
+  }
+}
+loadRepos();
+
+/* logo marquee (duplicated for seamless loop) */
+const logos = [
+  ['/Carousel/download (1).png','Python'],
+  ['/Carousel/download (2).png','Docker'],
+  ['/Carousel/wordpress.png','WordPress'],
+  ['/Carousel/download (3).png','Kali Linux'],
+  ['/Carousel/download.png','Linux'],
+  ['/Carousel/pyhon_logo.jpg','Cisco'],
+  ['/Carousel/owasp.png','OWASP'],
+  ['/Carousel/htb.png','Hack The Box'],
+  ['/Carousel/nesus.png','Nessus'],
+  ['/Carousel/aws.png','AWS'],
+  ['/Carousel/burp.png','Burp Suite'],
+  ['/Carousel/virtaulbox.png','VirtualBox'],
+  ['/Carousel/google.png','Google']
+];
+const marquee = document.getElementById('marquee');
+[...logos, ...logos].forEach(([src,alt])=>{
+  const img = document.createElement('img');
+  img.src = src; img.alt = alt;
+  marquee.appendChild(img);
+});
 </script>
 
 </body>
 </html>
-
